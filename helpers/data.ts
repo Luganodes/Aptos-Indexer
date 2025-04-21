@@ -119,7 +119,7 @@ export const getAptosUSDPrice = async (timestamp: number): Promise<null | number
     const price = await findTokenPrice('aptos', timestamp)
     return price
   } catch (error) {
-    console.error(`Failed to fetch Aptos USD price: ${error}`)
+    logger.error(`Failed to fetch Aptos USD price: ${error}`)
     return null
   }
 }

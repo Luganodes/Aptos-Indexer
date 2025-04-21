@@ -20,10 +20,31 @@ services:
 
   mongo:
     image: mongo:latest
+    container_name: mongo-aptos-indexer
+    restart: unless-stopped
+    command: --port ${DB_PORT}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
     ports:
-      - "27017:27017"
+        - '${DB_PORT}:${DB_PORT}'
     volumes:
-      - mongodb_data:/data/db
+        - mongodb_data:/data/db
+    healthcheck:
+      test:
+          [
+              'CMD',
+              'mongosh',
+              '--port',
+              '${DB_PORT}',
+              '--eval',
+              "db.adminCommand('ping')",
+          ]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
 
 volumes:
   mongodb_data:

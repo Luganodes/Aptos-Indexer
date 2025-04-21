@@ -16,5 +16,4 @@ export const exchangeApis = {
   BINANCE_KLINES_API: 'https://api.binance.com/api/v3/klines',
   BINANCE_TICKER_API: 'https://api.binance.com/api/v3/ticker/price',
   COINGECKO_API: 'https://api.coingecko.com/api/v3/coins',
-  LUGAGECKO_API: 'http://stputils.lgns.xyz/crypto-prices/data',
 }
