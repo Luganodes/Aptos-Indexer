@@ -2,7 +2,12 @@
 
 ## Overview
 
-The Aptos Blockchain Indexer is a tool designed to fetch, process, and store data from the Aptos blockchain. It primarily focuses on indexing delegator and reward data, which is crucial for understanding the staking and reward dynamics on the Aptos network. The indexer connects to the Aptos blockchain, retrieves the latest epoch data, updates delegator information, calculates rewards, and stores this information in a MongoDB database.
+The Aptos Blockchain Indexer is a tool designed to fetch, process, and store data from the Aptos blockchain. It primarily focuses on indexing delegator’s rewards and transaction data
+, which is crucial for understanding the staking and reward dynamics on the Aptos network. The indexer connects to the Aptos blockchain, retrieves the latest epoch data, updates delegator information, calculates rewards, and stores this information in a MongoDB database. There’s multiple use cases for the indexer some of which have been mentioned below
+
+- **Developers & DApp Builders** - Offering Aptos staking can utilise the indexer to get the rewards & transactions data to enabling a more seamless and informative user experience
+- **Validator Operators** – Validators can use the indexer to generate detailed reports for their clients, monitor delegator behavior, and analyze performance metrics over time.
+- **Researchers** – Can leverage historical data to perform trend analysis, compare validator performance, and conduct deeper insights into network dynamics.
 
 > NOTE: This indexer is pretty space intensive, so it's recommended to prune the database accordingly to ensure heap operations are not affected due to the size of the data being processed after fetching the data from the database.
 
